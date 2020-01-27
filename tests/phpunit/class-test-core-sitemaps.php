@@ -360,10 +360,10 @@ class Core_Sitemaps_Tests extends WP_UnitTestCase {
 	 */
 	public function test_robots_text_prefixed_with_line_feed()
 	{
-		add_filter('robots_txt', function ($output) {
-			$output .= 'I am a line without line break';
-			return $output;
-		 }, -1, 1);
+		// add_filter('robots_txt', function ($output) {
+		// 	$output .= 'I am a line without line break';
+		// 	return $output;
+		//  }, -1, 1);
 
 
 		// Get the text added to the default robots text output.
