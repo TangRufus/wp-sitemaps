@@ -358,7 +358,14 @@ class Core_Sitemaps_Tests extends WP_UnitTestCase {
 	/**
 	 * Test robots.txt output with line feed prefix.
 	 */
-	public function test_robots_text_prefixed_with_line_feed() {
+	public function test_robots_text_prefixed_with_line_feed()
+	{
+		add_filter('robots_txt', function ($output) {
+			$output .= 'I am a line without line break';
+			return $output;
+		 }, -1, 1);
+
+
 		// Get the text added to the default robots text output.
 		$robots_text = apply_filters( 'robots_txt', '', true );
 		$sitemap_string = "\nSitemap: ";
